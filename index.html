@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        @import url("https://fonts.googleapis.com/css?family=Montserrat+Alternates");
+
+        /* Darker hospital-themed background */
+        html {
+            height: 200vh;
+            background: linear-gradient(to bottom, #b0c4de 0%, #4682b4 100%);
+            cursor: pointer;
+        }
+
+        body {
+            height: 100vh;
+            overflow: hidden;
+            border-bottom: 10vh #4c9f5f solid;
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        /* Subtle medical pattern */
+        body::before {
+            content: '';
+            background-image: url('https://cdn-icons-png.flaticon.com/512/1051/1051295.png');
+            background-repeat: repeat;
+            opacity: 0.1;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: #4c4c4c;
+            font-family: "Montserrat Alternates", sans-serif;
+            font-size: 40px;
+            position: absolute;
+            z-index: 1;
+            width: 100%;
+            top: 0vh;
+            transform: translate(0, 100vh);
+            animation: move 1s 2.5s forwards;
+        }
+
+        @keyframes move {
+            0% {
+                transform: translate(0, 100vh);
+            }
+            100% {
+                transform: translate(0vh, 0);
+            }
+        }
+
+        .carnation {
+    width: 80vmin;
+    height: 80vmin;
+    position: absolute;
+    bottom: 15%; /* Adjusted to move the flower up */
+    left: 50%;
+    transform: translate(-50%, 0%);
+}
+
+
+        .carnation__leaf--left, .carnation__leaf--right {
+            width: 0%;
+            height: 20%;
+            border-radius: 0% 50% 0% 50%;
+            position: absolute;
+            background: #6f8e4b;
+            top: 70%;
+            left: 45%;
+            transform: translate(-100%, -50%) rotate(-20deg);
+            animation: carnation__leaf forwards 1s 0.5s;
+        }
+
+        .carnation__leaf--right {
+            top: 80%;
+            left: 55%;
+            transform: translate(0%, -50%) rotate(-70deg);
+        }
+
+        @keyframes carnation__leaf {
+            0% {
+                width: 0%;
+                border: 0px solid black;
+            }
+            100% {
+                width: 20%;
+                border: 2px solid black;
+            }
+        }
+
+        .carnation__stem {
+            position: absolute;
+            transform: translate(-50%, 0%);
+            width: 5%;
+            height: 60%;
+            background: #3E8E41;
+            left: 50%;
+            bottom: 0%;
+            border: 2px solid black;
+            animation: carnation__stem forwards 1s;
+        }
+
+        @keyframes carnation__stem {
+            0% {
+                height: 0;
+            }
+            100% {
+                height: 60%;
+            }
+        }
+
+        .carnation__center {
+            border-radius: 50%;
+            background-color: radial-gradient(circle, #FF6F61, #B00020);
+            transform: translate(-50%, -50%);
+            position: absolute;
+            left: 50%;
+            top: 40%;
+            z-index: 2;
+            animation: carnation__center 1s 1s forwards;
+        }
+
+        @keyframes carnation__center {
+            0% {
+                width: 0%;
+                height: 0%;
+            }
+            100% {
+                width: 25%;
+                height: 25%;
+            }
+        }
+
+        .carnation__petal {
+            border-radius: 50%;
+            background: radial-gradient(circle, #FF8A80, #C62828);
+            transform: translate(-50%, -50%);
+            position: absolute;
+            left: 50%;
+            top: 40%;
+            animation: grow-petal-back 1s 1.5s forwards;
+        }
+
+        .carnation__petal--1 { transform: translate(-50%, -50%) rotate(0deg); }
+        .carnation__petal--2 { transform: translate(-50%, -50%) rotate(30deg); }
+        .carnation__petal--3 { transform: translate(-50%, -50%) rotate(60deg); }
+        .carnation__petal--4 { transform: translate(-50%, -50%) rotate(90deg); }
+        .carnation__petal--5 { transform: translate(-50%, -50%) rotate(120deg); }
+        .carnation__petal--6 { transform: translate(-50%, -50%) rotate(150deg); }
+        .carnation__petal--7 { transform: translate(-50%, -50%) rotate(180deg); }
+        .carnation__petal--8 { transform: translate(-50%, -50%) rotate(210deg); }
+        .carnation__petal--9 { transform: translate(-50%, -50%) rotate(240deg); }
+        .carnation__petal--10 { transform: translate(-50%, -50%) rotate(270deg); }
+        .carnation__petal--11 { transform: translate(-50%, -50%) rotate(300deg); }
+        .carnation__petal--12 { transform: translate(-50%, -50%) rotate(330deg); }
+
+        @keyframes grow-petal-back {
+            0% {
+                width: 0%;
+                height: 0%;
+                border: 0px solid black;
+            }
+            100% {
+                width: 15%;
+                height: 45%;
+                border: 2px solid black;
+            }
+        }
+
+        /* Stethoscope */
+        .stethoscope {
+            position: absolute;
+            bottom: 10%; /* Positioned higher */
+            right: 5%; /* Positioned to the right */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .stethoscope__chestpiece {
+            width: 5vmin; /* Adjusted size */
+            height: 5vmin; /* Adjusted size */
+            background: black; /* Black color */
+            border-radius: 50%;
+            border: 2px solid #fff; /* White border for contrast */
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            margin-bottom: 1vmin; /* Space between chestpiece and tube */
+        }
+
+        .stethoscope__tube {
+            position: relative;
+            width: 0.5vmin; /* Thicker tube */
+            height: 15vmin; /* Longer tube */
+            background: black; /* Black color */
+            border-radius: 2px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            margin-top: -1vmin; /* Adjusted to fit */
+        }
+
+        .stethoscope__ear {
+            width: 2vmin; /* Adjusted size */
+            height: 2vmin; /* Adjusted size */
+            background: black; /* Black color */
+            border-radius: 50%;
+            position: absolute;
+            top: -1vmin; /* Adjusted position */
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .stethoscope__ear--right {
+            left: calc(50% + 2.5vmin); /* Adjusted for size */
+        }
+
+        .stethoscope__ear--left {
+            left: calc(50% - 2.5vmin); /* Adjusted for size */
+        }
+    </style>
+</head>
+<body>
+    <h1>Congrats dae Student Nursing naka!!<br><small></small></h1>
+    <div class="carnation">
+        <div class="carnation__leaf--left"></div>
+        <div class="carnation__leaf--right"></div>
+        <div class="carnation__stem"></div>
+        <div class="carnation__center"></div>
+        <div class="carnation__petal carnation__petal--1"></div>
+        <div class="carnation__petal carnation__petal--2"></div>
+        <div class="carnation__petal carnation__petal--3"></div>
+        <div class="carnation__petal carnation__petal--4"></div>
+        <div class="carnation__petal carnation__petal--5"></div>
+        <div class="carnation__petal carnation__petal--6"></div>
+        <div class="carnation__petal carnation__petal--7"></div>
+        <div class="carnation__petal carnation__petal--8"></div>
+        <div class="carnation__petal carnation__petal--9"></div>
+        <div class="carnation__petal carnation__petal--10"></div>
+        <div class="carnation__petal carnation__petal--11"></div>
+        <div class="carnation__petal carnation__petal--12"></div>
+    </div>
+
+    <div class="stethoscope">
+        <div class="stethoscope__chestpiece"></div>
+        <div class="stethoscope__tube"></div>
+        <div class="stethoscope__ear stethoscope__ear--left"></div>
+        <div class="stethoscope__ear stethoscope__ear--right"></div>
+    </div>
+</body>
+</html>
